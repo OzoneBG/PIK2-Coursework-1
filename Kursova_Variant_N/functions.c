@@ -64,10 +64,6 @@ void print_array(int* p, int size)
 			printf("[%d]: %d\n", i+1, *(p + i));
 		}
 	}
-	else
-	{
-		printf("Array is empty!\n");
-	}
 }
 
 void flush_array(int* p, int size)
@@ -121,35 +117,50 @@ void save_array(int* p, int size, char* fn)
 	}	
 }
 
-void load_array(int* p, int size, char* fn)
+void load_array(char* fn, int* p, int* size)
 {
 	FILE* fp;
+	int sz = *size;
 
 	fp = fopen(fn, "r");
 
 	int max_size = _MAX_ARRAY_SIZE;
 
-	if (size <= max_size)
+	if (sz <= max_size)
 	{
 		if (fp != NULL)
 		{
-			for (int i = 0; i < size; i++)
+			init(p, sz);
+
+			for (int i = 0; i < sz; i++)
 			{
 				fscanf(fp, "%d", (p + i));
 			}
 
 			fclose(fp);
+
+			n_printf("Array loaded!");
+		}
+		else
+		{
+			n_printf("File not found!");
+			*size = 0;
 		}
 	}
 	else
-		printf("Size cannot be more than 100!\n");	
+		n_printf("Size cannot be more than 100!");	
+}
+
+void err_empty()
+{
+	printf("Array is empty!\n");
+	system("pause");
 }
 
 void find_number(int* p, int size, int target)
 {
 	int found = 0;
 	int i = 0;
-
 
 	for (i; i < size; i++)
 	{

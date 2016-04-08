@@ -44,6 +44,13 @@ int main()
 			else if (option == '2')
 			{
 				int num;
+
+				if (elements == 0)
+				{
+					err_empty();
+					continue;
+				}
+
 				printf("Enter number: ");
 				scanf("%d", &num);
 
@@ -53,12 +60,23 @@ int main()
 			}
 			else if (option == '3')
 			{
+				if (elements == 0)
+				{
+					err_empty();
+					continue;
+				}
 				print_array(arr, elements);
 
 				system("pause");
 			}
 			else if (option == '4')
 			{
+				if (elements == 0)
+				{
+					err_empty();
+					continue;
+				}
+
 				float avg = average(arr, elements);
 
 				int val = find_closest(arr, elements, avg);
@@ -78,11 +96,9 @@ int main()
 				printf("How much elements do you want to read: ");
 				scanf("%d", &elements);
 
-				init(&arr, elements);
+				load_array(file_name, &arr, &elements);
 
-				load_array(arr, elements, file_name);
-
-				n_printf("Array loaded!");
+				printf("%d\n", elements);
 
 				system("pause");
 			}
