@@ -87,8 +87,7 @@ int main()
 			}
 			else if (option == '5')
 			{
-				if (arr != NULL)
-					free(arr);
+				free(arr);
 
 				printf("Specify file name: ");
 				char file_name[100];
@@ -98,8 +97,6 @@ int main()
 				scanf("%d", &elements);
 
 				load_array(file_name, &elements, &arr);
-
-				printf("Elements: %d\n", elements);
 
 				system("pause");
 			}

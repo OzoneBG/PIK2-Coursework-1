@@ -6,7 +6,7 @@ void init(int** p, int size)
 
 	if (size <= max_size)
 	{
-		*p = calloc(size, sizeof(int));
+		*p = (int*)calloc(size, sizeof(int));
 	}
 	else
 	{
@@ -48,7 +48,7 @@ void fill_array(int* p, int size)
 			printf("[%d]: ", i+1);
 			scanf("%d", &n);
 
-			*(p + i) = n;
+			p[i] = n;
 		}
 	}
 }
