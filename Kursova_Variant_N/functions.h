@@ -35,7 +35,7 @@ int find_closest(int*p, int size, float avg);
 void save_array(int* p, int size, char* fn);
 
 /* Load array from file */
-void load_array(char* fn, int* p, int* size);
+void load_array(char* fn, int* size, int** p);
 
 /* Find number in array specified by the user */
 void find_number(int* p, int size, int target);

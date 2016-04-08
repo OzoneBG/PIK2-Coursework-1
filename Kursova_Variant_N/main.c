@@ -87,7 +87,8 @@ int main()
 			}
 			else if (option == '5')
 			{
-				free(arr);
+				if (arr != NULL)
+					free(arr);
 
 				printf("Specify file name: ");
 				char file_name[100];
@@ -96,9 +97,9 @@ int main()
 				printf("How much elements do you want to read: ");
 				scanf("%d", &elements);
 
-				load_array(file_name, &arr, &elements);
+				load_array(file_name, &elements, &arr);
 
-				printf("%d\n", elements);
+				printf("Elements: %d\n", elements);
 
 				system("pause");
 			}

@@ -117,38 +117,38 @@ void save_array(int* p, int size, char* fn)
 	}	
 }
 
-void load_array(char* fn, int* p, int* size)
+void load_array(char* fn, int* size, int** p)
 {
-	FILE* fp;
-	int sz = *size;
+	FILE* fp = fopen(fn, "r");
 
-	fp = fopen(fn, "r");
-
-	int max_size = _MAX_ARRAY_SIZE;
-
-	if (sz <= max_size)
+	if (fp != NULL)
 	{
-		if (fp != NULL)
+		int max_size = _MAX_ARRAY_SIZE;
+		int sz = *size;
+
+		if (sz <= max_size)
 		{
 			init(p, sz);
 
 			for (int i = 0; i < sz; i++)
 			{
-				fscanf(fp, "%d", (p + i));
+				fscanf(fp, "%d", *p + i);
 			}
 
-			fclose(fp);
-
 			n_printf("Array loaded!");
+
+			fclose(fp);
 		}
 		else
 		{
-			n_printf("File not found!");
-			*size = 0;
+			n_printf("Size cannot be more than 100.");
 		}
 	}
 	else
-		n_printf("Size cannot be more than 100!");	
+	{
+		n_printf("File not found!");
+		*size = 0;
+	}
 }
 
 void err_empty()
