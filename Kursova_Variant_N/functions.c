@@ -159,19 +159,19 @@ void err_empty()
 
 void find_number(int* p, int size, int target)
 {
-	int found = 0;
+	int bFound = 0;
 	int i = 0;
 
 	for (i; i < size; i++)
 	{
 		if (*(p + i) == target)
 		{
-			found = 1;
+			bFound = 1;
 			break;
 		}
 	}
 
-	if (found)
+	if (bFound)
 		printf("Number %d exist in position %d\n", target, i);
 	else
 		printf("Number not found!\n");
