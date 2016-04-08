@@ -147,7 +147,7 @@ void load_array(int* p, int size, char* fn)
 
 void find_number(int* p, int size, int target)
 {
-	int bFound = 0;
+	int found = 0;
 	int i = 0;
 
 
@@ -155,12 +155,12 @@ void find_number(int* p, int size, int target)
 	{
 		if (*(p + i) == target)
 		{
-			bFound = 1;
+			found = 1;
 			break;
 		}
 	}
 
-	if (bFound)
+	if (found)
 		printf("Number %d exist in position %d\n", target, i);
 	else
 		printf("Number not found!\n");
