@@ -5,7 +5,13 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
+#define WIN_TERMINAL
+#ifdef WIN_TERMINAL
+#define CLEAR_COMMAND "cls"
+#endif
+#ifdef UNIX_TERMINAL
+#define CLEAR_COMMAND "clear";
+#endif
 
 /* Initialize array for use manually with memory allocation */
 void init(int** p, int size);
@@ -38,10 +44,13 @@ int find_closest(int*p, int size, float avg);
 void save_array(int* p, int size, char* fn);
 
 /* Load array from file */
-void load_array(char* fn, int* size, int** p);
+void load_array(char* fn, int* size, int* p);
 
 /* Find number in array specified by the user */
 void find_number(int* p, int size, int target);
 
 /* Print error that the array is empty */
 void err_empty();
+
+/* Pauses the program to let the user read input */
+void pause();

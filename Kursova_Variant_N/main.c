@@ -2,8 +2,6 @@
 
 int main()
 {
-	SetConsoleTitle(TEXT("Kursova rabota"));
-
 	//This is the option the user chooses when asked to, to navigate the program
 	char option;
 
@@ -39,7 +37,7 @@ int main()
 				
 				fill_array(arr, elements);
 
-				system("pause");
+				pause();
 			}
 			else if (option == '2')
 			{
@@ -56,7 +54,7 @@ int main()
 
 				find_number(arr, elements, num);
 
-				system("pause");
+				pause();
 			}
 			else if (option == '3')
 			{
@@ -67,7 +65,7 @@ int main()
 				}
 				print_array(arr, elements);
 
-				system("pause");
+				pause();
 			}
 			else if (option == '4')
 			{
@@ -83,11 +81,12 @@ int main()
 
 				printf("Closest element is %d to %.2f\n", val, avg);
 
-				system("pause");
+				pause();
 			}
 			else if (option == '5')
 			{
-				free(arr);
+				if (arr != NULL)
+					free(arr);
 
 				printf("Specify file name: ");
 				char file_name[100];
@@ -96,9 +95,11 @@ int main()
 				printf("How much elements do you want to read: ");
 				scanf("%d", &elements);
 
-				load_array(file_name, &elements, &arr);
+				init(&arr, elements);
 
-				system("pause");
+				load_array(file_name, &elements, arr);
+
+				pause();
 			}
 			else if (option == '6')
 			{
@@ -108,7 +109,7 @@ int main()
 
 				save_array(arr, elements, file_name);
 
-				system("pause");
+				pause();
 			}
 			else if (option == '7')
 			{

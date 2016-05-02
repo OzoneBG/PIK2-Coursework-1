@@ -27,7 +27,7 @@ void print_menu()
 
 void cons_clear()
 {
-	system("cls");
+	system(CLEAR_COMMAND);
 }
 
 void n_printf(char* str)
@@ -117,7 +117,7 @@ void save_array(int* p, int size, char* fn)
 	}	
 }
 
-void load_array(char* fn, int* size, int** p)
+void load_array(char* fn, int* size, int* p)
 {
 	FILE* fp = fopen(fn, "r");
 
@@ -128,15 +128,12 @@ void load_array(char* fn, int* size, int** p)
 
 		if (sz <= max_size)
 		{
-			init(p, sz);
-
 			for (int i = 0; i < sz; i++)
 			{
-				fscanf(fp, "%d", p[i]);
+				fscanf(fp, "%d", &p[i]);
 			}
 
 			n_printf("Array loaded!");
-
 			fclose(fp);
 		}
 		else
@@ -148,6 +145,7 @@ void load_array(char* fn, int* size, int** p)
 	{
 		n_printf("File not found!");
 		*size = 0;
+		
 	}
 }
 
@@ -175,4 +173,12 @@ void find_number(int* p, int size, int target)
 		printf("Number %d exist in position %d\n", target, i);
 	else
 		printf("Number not found!\n");
+}
+
+void pause()
+{
+	printf("Press any key to continue.\n");
+	getchar();
+	getchar();
+	cons_clear();
 }
