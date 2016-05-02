@@ -22,6 +22,7 @@
     <ProjectGuid>{E02476A2-4A55-4B4C-BBAB-B8094E7F8BFD}</ProjectGuid>
     <RootNamespace>Kursova_Variant_N</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Kursova_Variant_6</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
