@@ -2,6 +2,8 @@
 
 int main()
 {
+	SetConsoleTitle(TEXT("Kursova rabota"));
+
 	//This is the option the user chooses when asked to, to navigate the program
 	char option;
 

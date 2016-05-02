@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 
 /* Initialize array for use manually with memory allocation */
 void init(int** p, int size);
