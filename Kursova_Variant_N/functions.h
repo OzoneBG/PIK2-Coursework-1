@@ -1,8 +1,10 @@
 #pragma once
+/* Define CRT SECURE NO WARNINGS for Visual Studio compiler to escape secure warnings */
 #define _CRT_SECURE_NO_WARNINGS
 #define _MAX_ARRAY_SIZE 100;
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Initialize array for use manually with memory allocation */
 void init(int** p, int size);

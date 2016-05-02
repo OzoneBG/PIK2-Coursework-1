@@ -61,7 +61,7 @@ void print_array(int* p, int size)
 	{
 		for (int i = 0; i < size; i++)
 		{
-			printf("[%d]: %d\n", i+1, *(p + i));
+			printf("[%d]: %d\n", i+1, p[i]);
 		}
 	}
 }
@@ -69,7 +69,7 @@ void print_array(int* p, int size)
 void flush_array(int* p, int size)
 {
 	for (int i = 0; i < size; i++)
-		*(p + i) = 0;
+		p[i] = 0;
 }
 
 float average(int* p, int size)
@@ -78,7 +78,7 @@ float average(int* p, int size)
 
 	for (int i = 0; i < size; i++)
 	{
-		sum += *(p + i);
+		sum += p[i];
 		count++;
 	}
 
@@ -89,12 +89,12 @@ float average(int* p, int size)
 
 int find_closest(int* p, int size, float avg)
 {
-	int closest = *(p + 0);
+	int closest = p[0];
 
 	for (int i = 0; i < size; i++)
 	{
-		if (abs(*(p + i) - avg) < abs(closest - avg))
-			closest = *(p + i);
+		if (abs(p[i] - avg) < abs(closest - avg))
+			closest = p[i];
 	}
 
 	return closest;
@@ -110,7 +110,7 @@ void save_array(int* p, int size, char* fn)
 	{
 		for (int i = 0; i < size; i++)
 		{
-			fprintf(fp, "%d\n", *(p + i));
+			fprintf(fp, "%d\n", p[i]);
 		}
 
 		fclose(fp);
@@ -132,7 +132,7 @@ void load_array(char* fn, int* size, int** p)
 
 			for (int i = 0; i < sz; i++)
 			{
-				fscanf(fp, "%d", *p + i);
+				fscanf(fp, "%d", p[i]);
 			}
 
 			n_printf("Array loaded!");
@@ -164,7 +164,7 @@ void find_number(int* p, int size, int target)
 
 	for (i; i < size; i++)
 	{
-		if (*(p + i) == target)
+		if (p[i] == target)
 		{
 			bFound = 1;
 			break;

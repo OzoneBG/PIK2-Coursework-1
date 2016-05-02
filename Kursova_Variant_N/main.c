@@ -1,5 +1,3 @@
-/* Define CRT SECURE NO WARNINGS for Visual Studio compiler to escape secure warnings */
-#define _CRT_SECURE_NO_WARNINGS
 #include "functions.h"
 
 int main()
