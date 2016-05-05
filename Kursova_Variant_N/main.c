@@ -14,7 +14,6 @@ int main()
 	//This is the array variable to use inside the program
 	int* arr = 0;
 
-
 	while (should_run)
 	{
 		print_menu();
